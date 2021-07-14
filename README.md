@@ -1,2 +1,2 @@
 # DEA
-Differential equations and applications
+Differential equations and applications FMI course
