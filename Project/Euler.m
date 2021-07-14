@@ -1,8 +1,8 @@
 function Euler
  
-	% Initializing parameters
-	x0=2; y0=1; b=4;
-	h1=0.4; h2=0.2 ; h3=0.02;
+% Initializing parameters
+    x0=2; y0=1; b=4;
+    h1=0.4; h2=0.2 ; h3=0.02;
     xmin=2;
     xmax=4;
     
@@ -14,27 +14,27 @@ function Euler
     x=linspace(xmin,xmax);
     plot(x,eval(y),'k');
     
-	% Initializing the arrays
-	x1=[];y1=[];
-	x1(1)=x0;y1(1)=y0;
-	
-	x2=[];y2=[];
-	x2(1)=x0;y2(1)=y0;
-	
-	x3=[]; y3=[]; 
-	x3(1)=x0; y3(1)=y0;
-	
-	N=(b-x0);
+% Initializing the arrays
+    x1=[];y1=[];
+    x1(1)=x0;y1(1)=y0;
+    
+    x2=[];y2=[];
+    x2(1)=x0;y2(1)=y0;
+    
+    x3=[]; y3=[];
+    x3(1)=x0; y3(1)=y0;	
+    
+    N=(b-x0);
      
-    % Defining main function
-	function z=ff(x,y)
-		z=(3*y+x^3)/x;
+% Defining main function
+    function z=ff(x,y)
+    	z=(3*y+x^3)/x;
     end
 
-	% Filling the arrays
-	for m=1:(N/h1)
-        x1(m+1)=x0+m*h1;
-        y1(m+1)=y1(m)+ff(x1(m),y1(m))*h1; 
+% Filling the arrays
+    for m=1:(N/h1)
+    	x1(m+1)=x0+m*h1;
+    	y1(m+1)=y1(m)+ff(x1(m),y1(m))*h1; 
     end
     
     for k=1:(N/h2)
@@ -42,12 +42,11 @@ function Euler
         y2(k+1)=y2(k)+ff(x2(k),y2(k))*h2;
     end
     
-	for j=1:(N/h3)
-		x3(j+1)=x0+j*h3;
-		y3(j+1)=y3(j)+ff(x3(j),y3(j))*h3;
-    end
-    
-	% Plotting the approximations
-	plot(x1,y1,'g',x2,y2,'b',x3,y3,'r')
- 
-end
+    for j=1:(N/h3)
+    	x3(j+1)=x0+j*h3;
+	y3(j+1)=y3(j)+ff(x3(j),y3(j))*h3;
+    end    
+	
+% Plotting the approximations
+    plot(x1,y1,'g',x2,y2,'b',x3,y3,'r')
+ end
